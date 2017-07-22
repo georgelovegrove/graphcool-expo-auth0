@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Button } from 'react-native'
 
 import Auth, { logout, currentUserQuery } from './auth'
 
-const Entry = ({ fetchCurrentUser: { loading, user } }) => {
+const Entry = ({ createClient, fetchCurrentUser: { loading, user } }) => {
   if (loading) return <View style={styles.container}><Text>Loading...</Text></View>
   return user
     ? (<View style={styles.container}>

@@ -6,9 +6,9 @@ import jwtDecoder from 'jwt-decode'
 
 import { redirect_uri, auth0_client_id, authorize_url, client } from '../apollo'
 
-export const logout = () => {
-  AsyncStorage.clear()
-    .then(() => client.resetStore())
+export const logout = async () => {
+  await AsyncStorage.removeItem('token')
+  client.resetStore()
 }
 
 const toQueryString = params => {

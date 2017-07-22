@@ -1,19 +1,16 @@
 import { ApolloClient, createNetworkInterface } from 'react-apollo'
 import { AsyncStorage } from 'react-native'
 
-export const auth0_client_id = '{__AUTH0_CLIENT_ID__}'
-export const authorize_url = 'https://{__AUTH0_DOMAIN__}/authorize'
+import { AUTH0_CLIENT, AUTH0_DOMAIN, EXPO_URL, API_ENDPOINT } from 'react-native-dotenv'
 
-export let redirect_uri
-if (Expo.Constants.manifest.xde) {
-  redirect_uri = '{__EXPONENT_URL_WITHOUT_PORT__}/+/redirect'
-} else {
-  redirect_uri = `${Expo.Constants.linkingUri}/redirect`
-}
+export const auth0_client_id = AUTH0_CLIENT
+export const authorize_url = `https://${AUTH0_DOMAIN}/authorize`
 
-const networkInterface = createNetworkInterface({
-  uri: '{__SIMPLE_API_ENDPOINT__}'
-})
+export const redirect_uri = Expo.Constants.manifest.xde
+  ? `${EXPO_URL}/+/redirect`
+  : `${Expo.Constants.linkingUri}/redirect`
+
+const networkInterface = createNetworkInterface({ uri: API_ENDPOINT })
 
 networkInterface.use([{
   applyMiddleware(req, next) {
