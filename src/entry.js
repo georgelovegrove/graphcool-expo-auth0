@@ -1,16 +1,14 @@
 import React from 'react'
-import { graphql, compose, gql } from 'react-apollo'
+import { graphql } from 'react-apollo'
 import { StyleSheet, Text, View, Button } from 'react-native'
 
-import Auth, { logout, currentUserQuery } from './auth'
+import Auth, { currentUserQuery } from './auth'
+import Router from './router'
 
-const Entry = ({ createClient, fetchCurrentUser: { loading, user } }) => {
+const Entry = ({ fetchCurrentUser: { loading, user } }) => {
   if (loading) return <View style={styles.container}><Text>Loading...</Text></View>
   return user
-    ? (<View style={styles.container}>
-        <Text>Logged in baby</Text>
-        <Button onPress={logout} title='Logout' />
-      </View>)
+    ? <Router />
     : <Auth />
 }
 
