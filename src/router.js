@@ -9,20 +9,20 @@ const Router = TabNavigator({
   Messages: {
     screen: Messages,
     navigationOptions: {
-      tabBarIcon: ({ tintColor }) => <Image source={require('./assets/icons/message.png')} style={[styles.icon, {tintColor: tintColor}]} />
+      tabBarIcon: ({ tintColor }) => <Image source={require('./assets/icons/message.png')} style={[styles.icon, { tintColor }]} />
     }
   },
   Profile: {
     screen: Profile,
     navigationOptions: {
-      tabBarIcon: ({ tintColor }) => <Image source={require('./assets/icons/profile.png')} style={[styles.icon, {tintColor: tintColor}]} />
+      tabBarIcon: ({ tintColor }) => <Image source={require('./assets/icons/profile.png')} style={[styles.icon, { tintColor }]} />
     }
   }
 }, {
   tabBarComponent: TabBarBottom,
   tabBarPosition: 'bottom',
   tabBarOptions: {
-    activeTintColor: '#64E297',
+    activeTintColor: '#C567E5',
     showIcon: true,
     showLabel: false
   }
@@ -31,8 +31,7 @@ const Router = TabNavigator({
 const styles = StyleSheet.create({
   icon: {
     width: 26,
-    height: 26,
-    tintColor: '#C567E5'
+    height: 26
   }
 })
 
