@@ -92,7 +92,7 @@ class Auth extends Component {
             if (!result.data.user) {
               this.props.createUser({ variables: { encodedToken, username } })
                 .catch(error => {
-                  console.error('ERROR: could not create user: ', failure)
+                  console.error('ERROR: could not create user: ', error)
                 })
             }
           })
